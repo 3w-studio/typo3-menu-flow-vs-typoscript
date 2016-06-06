@@ -1,0 +1,51 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      data-namespace-typo3-fluid="true"
+      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+      v:schemaLocation="https://fluidtypo3.org/schemas/vhs-master.xsd">
+<ce:menu.directory pageUids="{pageUids}" as="pages">
+	<f:if condition="{pages}">
+	
+		<div class="page-slider clearfix">
+			<f:for each="{pages}" as="page">
+				<v:page.info as="page" pageUid="{page.uid}">
+
+				  <div class="slide test clearfix" id="slide-{page.uid}" data-url="{f:uri.page(pageUid:page.uid)}" data-uid="{page.uid}" data-title="{page.title}" data-subtitle="{page.subtitle}" data-layout="{page.layout}">
+					  <div class="slide-header">
+					  
+					<!-- Infos (Slidedown) -->
+					<div class="header-container">
+						<div class="header">
+
+							<div class="header_content">
+								<div class="header-left header-col">
+									<f:format.raw>{header_left}</f:format.raw>
+									<!-- <f:cObject typoscriptObjectPath="lib.l1_menu" /> -->
+									<f:cObject typoscriptObjectPath="lib.langMenu" />
+									<f:cObject typoscriptObjectPath="lib.siblings" />
+									
+								</div>
+								<div class="header-right header-col">
+				
+									<v:content.render pageUid="{page.uid}" column="1"/>
+								</div>
+							</div>
+						</div>
+					</div>  
+					  
+			  		<!-- + Icon -->
+			  		<div class="control-container">
+			  			<div class="more"></div>
+			  		</div>
+					</div>
+					<div class="slide-content">
+						<f:format.raw>{float_descr}</f:format.raw>
+					 <v:content.render hideUntranslated="0" pageUid="{page.uid}" column="2"/>
+					</div>				 
+				 </div>
+				</v:page.info>
+			</f:for>
+		</div>
+	</f:if>
+</ce:menu.directory>
+</html>
