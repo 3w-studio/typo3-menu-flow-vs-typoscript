@@ -5,3 +5,5 @@ Maybe it helps somebody to find the right code.
 Type-7.html is used to override the Menu Type 7 which you can create as a content element. It requires the VHS-Extension to be installed in the Extension Manager.
 
 The Typoscript version is included via Typoscript.
+
+Both worked in my setup. The only issue is that the Flow-Version loads empty menu elements when the page is not translated.
